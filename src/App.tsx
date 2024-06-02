@@ -1,7 +1,15 @@
+import { EstiloGlobal, Container } from "./styles/indext"
+import { Topo } from "./containers/Topo"
+import { Contatos } from "./containers/Contatos"
+
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <EstiloGlobal />
+      <Container>
+        <Topo></Topo>
+        <Contatos></Contatos>
+      </Container>
     </div>
   )
 }
