@@ -1,3 +1,8 @@
 import * as S from "./styles"
 
-export const Input = () => <S.Input placeholder="Buscar contato..." />
+type Props = {
+  placeholder?: string
+}
+export const Input = ({ placeholder }: Props) => (
+  <S.Input placeholder={placeholder} />
+)

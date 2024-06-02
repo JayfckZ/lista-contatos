@@ -1,6 +1,21 @@
 import styled from "styled-components"
 import { Botao } from "../Botao/styles"
 
+function selecionarCorAleatoria() {
+  const cores = [
+    "#2ed573",
+    "#1e90ff",
+    "#3742fa",
+    "#ff4757",
+    "#eccc68",
+    "#ff6b81",
+    "#ff7f50"
+  ]
+  const corAleatoria = cores[Math.floor(Math.random() * cores.length)]
+
+  return corAleatoria
+}
+
 export const ContatoContainer = styled.div`
   padding: 16px;
   border: 1px solid;
@@ -15,11 +30,16 @@ export const ContatoContainer = styled.div`
   #img {
     justify-self: center;
     align-self: center;
+    text-transform: capitalize;
   }
 
   #infos {
     display: flex;
     flex-direction: column;
+
+    @media (width <= 767px) {
+      align-items: center;
+    }
   }
 
   #buttons {
@@ -37,17 +57,28 @@ export const Foto = styled.div`
 
   border-radius: 50%;
 
-  background-color: #2ed573;
+  background-color: ${selecionarCorAleatoria};
 
   font-weight: bold;
   font-size: 24px;
 `
 
-export const Nome = styled.h3`
-  font-size: 24px;
-`
+export const Numero = styled.textarea`
+  resize: none;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  color: #fff;
 
-export const Numero = styled.p``
+  @media (width <= 767px) {
+    text-align: center;
+  }
+`
+export const Nome = styled(Numero)`
+  font-size: 24px;
+  font-weight: bold;
+`
 
 export const BotaoLigar = styled.a`
   display: flex;
@@ -89,5 +120,29 @@ export const BotaoEditar = styled(Botao)`
     background-color: transparent;
     border: 2px solid orange;
     color: orange;
+  }
+
+  @media (width <= 767px) {
+    width: 80%;
+  }
+`
+
+export const BotaoSalvar = styled(BotaoEditar)`
+  background-color: green;
+
+  &:hover {
+    background-color: transparent;
+    border: 2px solid green;
+    color: green;
+  }
+`
+
+export const BotaoCancelar = styled(BotaoEditar)`
+  background-color: red;
+
+  &:hover {
+    background-color: transparent;
+    border: 2px solid red;
+    color: red;
   }
 `
